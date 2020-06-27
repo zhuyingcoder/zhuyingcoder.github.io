@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><meta name="keywords" content="categories-github"><meta name="description" content="java,技术分享,后端开发,支付框架,数据接口"><meta name="author" content="removeif"><title>核心API - 叶大帅的博客</title><meta description="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:type" content="article"><meta property="og:title" content="核心API"><meta property="og:url" content="http://yoursite.com/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/"><meta property="og:site_name" content="竹影の叶"><meta property="og:description" content="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2019-09-19T14:10:43.000Z"><meta property="article:modified_time" content="2020-06-27T13:57:51.260Z"><meta property="article:author" content="removeif"><meta property="article:tag" content="categories-github"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://yoursite.com/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/"},"headline":"核心API","image":["http://yoursite.com/img/avatar.png"],"datePublished":"2019-09-19T14:10:43.000Z","dateModified":"2020-06-27T13:57:51.260Z","author":{"@type":"Person","name":"removeif"},"description":"java,技术分享,后端开发,支付框架,数据接口"}</script><link rel="alternative" href="/atom.xml" title="叶大帅的博客" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-dark.min.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/style.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="核心API"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><div style="color: #3273dc;font-size: 1.8rem;"><i class="fas fa-arrow-alt-circle-up"></i> </div><i class="far fa-calendar-plus"> </i>2019-09-19  <span class="level-item"><i class="far fa-clock"> </i>10 分钟  <i class="fas fa-pencil-alt"> </i>1.4 k</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">核心API</h1><div class="content"><h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><h3 id="横向关系"><a href="#横向关系" class="headerlink" title="横向关系"></a>横向关系</h3><ol>
+<li><p>组合关系 【关系较强】</p>
+<p>是关联的一种，两个类之间的关系较强，属于整体与局部关系。 局部不能脱离整体单独存在，在创建整体对象时，局部被一起创建出来。</p>
+<p>也是<code>HAS A</code> 关系</p>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">private</span> Heart heart; <span class="comment">//</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;<span class="comment">//</span></span><br><span class="line">        <span class="keyword">this</span>.birth = <span class="keyword">new</span> Date(); <span class="comment">//也是组合</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">this</span>.heart = <span class="keyword">new</span> Heart(); <span class="comment">//这个Heart不是由外部传入的，而是在创建整体对象时，它自己来创建局部对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Heart</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p><strong>组合关系的ＵＭＬ图形是：实线+实心菱形</strong></p>
+</li>
+<li><p>聚合关系 【关系比组合关系略弱】</p>
+<p>也是关联关系的一种，两个类之间的关系稍弱，两个类在语义上是”平等”。 两个对象可以单独存在，在创建主对象时，辅助对象不需要被创建，而是由外部传入。</p>
+<p>也是<code>HAS A</code> 关系</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">private</span> Heart heart; <span class="comment">//</span></span><br><span class="line">    <span class="keyword">private</span> Address homeAddress; <span class="comment">//家庭住址</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, Address homeAddress)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;<span class="comment">// 聚合</span></span><br><span class="line">        <span class="keyword">this</span>.birth = <span class="keyword">new</span> Date(); <span class="comment">//也是组合</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">this</span>.heart = <span class="keyword">new</span> Heart(); <span class="comment">//这个Heart不是由外部传入的，而是在创建整体对象时，它自己来创建局部对象。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">this</span>.homeAddress = homeAddress; <span class="comment">//聚合，对象由外界传入。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Heart</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p><strong>聚合关系的UML图形是：实心线+空心菱形</strong></p>
+</li>
+<li><p>依赖关系 【关系最弱】</p>
+<p>它是一种“USE A” 关系，表示一个类使用了另一个类，这种方法往往以局部变量的方式出现在代码中，如：我们在程序经常使用一些工具类或辅助类，都是这种关系。</p>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IAFactory</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IA <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IA</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// IAFactory与IA 的关系就是 依赖关系，IAFactory依赖于 IA</span></span><br></pre></td></tr></table></figure>
+
+<p>以上三种关系由强到弱分别是： 组合，聚合，依赖</p>
+<p>注：</p>
+<p><strong>依赖的UML图形是：虚线+箭头</strong></p>
+</li>
+</ol>
+<h3 id="纵向关系"><a href="#纵向关系" class="headerlink" title="纵向关系"></a>纵向关系</h3><ol>
+<li><p>继承关系</p>
+<p>它是 “IS A” 的关系。</p>
+<p><strong>它的UML图形是：实线+空心三角形</strong></p>
+</li>
+<li><p>实现关系</p>
+<p>它也是”IS A “ 的关系。</p>
+<p><strong>它的UML图形是： 虚线+空心三角形</strong></p>
+</li>
+</ol>
+<h2 id="三大类型的操作"><a href="#三大类型的操作" class="headerlink" title="三大类型的操作"></a>三大类型的操作</h2><h3 id="数字型"><a href="#数字型" class="headerlink" title="数字型"></a>数字型</h3><ol>
+<li>8大基本类型的包装类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>    --&gt;		Byte</span><br><span class="line"><span class="keyword">short</span>	--&gt;		Short</span><br><span class="line"><span class="keyword">int</span>		--&gt; 	Integer</span><br><span class="line"><span class="keyword">long</span>	--&gt;		Long</span><br><span class="line"><span class="keyword">double</span>	--&gt; 	Double</span><br><span class="line"><span class="keyword">float</span>	--&gt;		Float</span><br><span class="line"><span class="keyword">char</span>	--&gt;		Character</span><br><span class="line"><span class="keyword">boolean</span>	--&gt;		Boolean</span><br></pre></td></tr></table></figure>
+
+<p>以上8种基本类型与对应的对象类型之间可以实现自动解封箱[auto boxing/unboxing]。</p>
+<p> 如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">9</span>;</span><br><span class="line">Integer j = i; <span class="comment">//ok, 自动封箱</span></span><br><span class="line">Integer k = <span class="keyword">new</span> Integer(i); <span class="comment">//ok, 手动封箱</span></span><br><span class="line"><span class="keyword">int</span> m = k; <span class="comment">//ok, 自动解箱</span></span><br><span class="line"><span class="comment">//注：虽然可以自动解封箱，但是，它们还是有区别的，如：</span></span><br><span class="line">j = <span class="keyword">null</span>; <span class="comment">//ok</span></span><br><span class="line">i = <span class="keyword">null</span>; <span class="comment">//compile error</span></span><br></pre></td></tr></table></figure>
+
+<p>这8种基本类型与对象类型以及字符串形式如何转换？</p>
+<p>以 Integer 为例</p>
+<ul>
+<li>把 int 转换成字符串  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">9</span>;</span><br><span class="line">String istr = String.valueOf(i);</span><br><span class="line">或：</span><br><span class="line">String istr = i.toString(); <span class="comment">//Compile Error</span></span><br><span class="line">String istr = Integer.valueOf(i).toString(); <span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把字符串转换成整数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String istr = <span class="string">"19"</span>;</span><br><span class="line">String jstr = <span class="string">"0xff3"</span>;</span><br><span class="line"><span class="keyword">int</span> i = Integer.parseInt(istr); <span class="comment">//ok</span></span><br><span class="line"><span class="keyword">int</span> j = Integer.parseInt(jstr, <span class="number">16</span>); <span class="comment">//	</span></span><br><span class="line"><span class="comment">//或1</span></span><br><span class="line"><span class="keyword">int</span> i = <span class="keyword">new</span> Integer(istr).intValue(); <span class="comment">//ok</span></span><br><span class="line"><span class="comment">//或2</span></span><br><span class="line"><span class="keyword">int</span> i = Integer.valueOf(istr).intValue(); <span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>抽象父类 Number</strong> </p>
+<blockquote>
+<p>是为了以统一的方式来使用各种不同的数字类型而准备的。</p>
+<p>为了扩展而存在的。</p>
+</blockquote>
+<p><strong>相关的包</strong></p>
+<ul>
+<li>java.lang包</li>
+<li>java.text包</li>
+<li>java.math包</li>
+</ul>
+<p><strong>数字的格式化</strong></p>
+<h3 id="日期型"><a href="#日期型" class="headerlink" title="日期型"></a>日期型</h3><blockquote>
+<p>在JDK8之前，日期相关的API分布：</p>
+<ul>
+<li>java.util.Date, TimeZone</li>
+<li>java.sql.Date, TimeStamp, Time, Calendar ,  GregorianCalendar</li>
+<li>java.text.DateFormat , SimpleDateFormat</li>
+</ul>
+</blockquote>
+<p><strong>java.util.Date</strong></p>
+<p>常用方法：</p>
+<ul>
+<li>public Date()     以当前的系统时间来构造日期对象</li>
+<li>public Date(long t)   以指定毫秒数来构建日期对象</li>
+</ul>
+<p><strong>java.util.Calendar 和  GregorianCalendar</strong></p>
+<p>常用方法：</p>
+<ul>
+<li>getInstance()   获取Calendar的实例，是一个工厂方法  </li>
+<li>set(int type)     设置日历对象中的指定成员，这个成员由 type指定，这个type是Calendar定义的常量，如：YEAR, MONTH, DAY_OF_MONTH, ….</li>
+<li>get(int type)    获取日历对象中的指定成员，这个type同上。</li>
+<li>getTime()     获取此日历对象中的日期，返回一个 Date</li>
+<li>setTime(Date d)   给此日历对象设计一个新的日期。</li>
+</ul>
+<p><strong>DateFormat和SimpleDateFormat</strong></p>
+<p>常用方法：</p>
+<ul>
+<li><p>public SimpleDateFormat(String pattern)   构造方法，根据指定 的模式来创建SimpleDateFormat对象</p>
+</li>
+<li><p>format() 方法，格式化日期对象，返回字符串</p>
+</li>
+<li><p>parse() 方法， 解析方法，把字符串解析成日期对象，并返回</p>
+</li>
+</ul>
+<h4 id="JDK8中的全新日期处理API"><a href="#JDK8中的全新日期处理API" class="headerlink" title="JDK8中的全新日期处理API"></a>JDK8中的全新日期处理API</h4><p>所在的包：</p>
+<p><strong>java.time</strong> </p>
+<p>java.time.format</p>
+<p>java.time.temporal</p>
+<p>…</p>
+<p>主要的类型 【这些类型都是不可变的，线程安全的】</p>
+<ul>
+<li>LocalDate   处理年月日的类型</li>
+<li>LocalTime   处理时、分、秒</li>
+<li>LocalDateTime  年月日，时分秒</li>
+<li>Duration   计算时间分和差距</li>
+<li>Period        计算年月日 的差距</li>
+<li>Clock          可选类</li>
+<li>…</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p>作业一、<br>我们需要设计一组类来操作图书类[Book]数据，包含<br>添加图书、查询图书、删除图书、统计数量、清空等操作。</p>
+<p>其中，Book实例类包含如下属性</p>
+<ul>
+<li>id</li>
+<li>图书名</li>
+<li>图书作者</li>
+<li>isbn 【表示图书的编码】</li>
+</ul>
+<p>为了更好地体现OO的思想，设计一个图书业务接口如下：</p>
+<p>public interface IBookService {</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void addBook(Book b); &#x2F;&#x2F;添加图书</span><br><span class="line"></span><br><span class="line">void deleteByIsbn(String ibsn); &#x2F;&#x2F;</span><br><span class="line"></span><br><span class="line">void deleteByAuthor(String author); &#x2F;&#x2F;</span><br><span class="line"></span><br><span class="line">void updateBook(Book b); &#x2F;&#x2F;附加题</span><br><span class="line"></span><br><span class="line">int size(); &#x2F;&#x2F;统计书的数量</span><br><span class="line"></span><br><span class="line">void clear(); &#x2F;&#x2F;清空所有图书</span><br><span class="line"></span><br><span class="line">Book selectByIsbn(String isbn);</span><br><span class="line"></span><br><span class="line">Book[] getAllBooks(); &#x2F;&#x2F;获取所有图书</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<p>//请写一个业务接口的实现类，完成以上所有的业务方法。</p>
+<p>并提供测试。</p>
+</div><ul class="post-copyright"><li><strong>本文标题：</strong><a href="http://yoursite.com/2019/09/19/javase/核心API/">核心API</a></li><li><strong>本文作者：</strong><a href="http://yoursite.com">叶建雄</a></li><li><strong>本文链接：</strong><a href="http://yoursite.com/2019/09/19/javase/核心API/">http://yoursite.com/2019/09/19/javase/核心API/</a></li><li><strong>版权声明：</strong><span>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</span></li></ul><div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 相关文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%882%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE/" target="_blank">集合-Map</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/NIO%E3%80%81Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">NIO</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">多线程</a><br></span><span>  7.<a class="is-size-6" href="/2019/09/19/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_blank">面向对象</a><br></span><span>  8.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span></div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/" target="_blank">注解解析程序</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/" target="_blank">核心API</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">抽象类和接口的总结</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/09/19/javase/NIO%E3%80%81Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="level-item">NIO</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget toc-scroll" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list toc"><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-类之间的关系" href="#类之间的关系"><span>类之间的关系</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-横向关系" href="#横向关系"><span>横向关系</span></a></li><li><a class="is-flex toc-item" id="toc-item-纵向关系" href="#纵向关系"><span>纵向关系</span></a></li></ul></li><li><a class="is-flex toc-item" id="toc-item-三大类型的操作" href="#三大类型的操作"><span>三大类型的操作</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-数字型" href="#数字型"><span>数字型</span></a></li><li><a class="is-flex toc-item" id="toc-item-JDK8中的全新日期处理API" href="#JDK8中的全新日期处理API"><span>JDK8中的全新日期处理API</span></a></li><li><a class="is-flex toc-item" id="toc-item-字符串" href="#字符串"><span>字符串</span></a></li></ul></li></ul><li><a class="is-flex toc-item" id="toc-item-作业" href="#作业"><span>作业</span></a></li></ul></div></div><script type="text/javascript" async>
+        $(document).ready(function () { //参考自 https://github.com/ppoffice/hexo-theme-icarus/pull/616/files
+            var observerTopMargin;
+            var scrollObserver;
+            var headerElems = $(".headerlink");
+            var activeTocItem;
+        
+            function initIntersectionObserver(docHeight) {
+                observerTopMargin = docHeight;
+                scrollObserver = new IntersectionObserver(scrollCallBack,
+                    {
+                        root: null,  // viewpoint
+                        rootMargin: docHeight + "px 0px -80% 0px"  // cover top 30% of viewport to the top of document
+                    })
+            }
+        
+            function scrollCallBack(entries, observer) {
+                if ($(window).scrollTop() > observerTopMargin * 0.7) { 
+                    // User somehow scroll to 70% of observerTopMargin (which is inited as 200% document height)
+                    // Observer top margin need to extend to cover all the space to the top of the document
+                    initIntersectionObserver(observerTopMargin * 2)
+                    observer.disconnect();
+                    return;
+                }
+                let toActive;
+                if (entries[0].intersectionRatio == 1) {  // enter viewed area
+                    let entry = entries.reduce((u, v) => (u.target.toc_id > v.target.toc_id ? u : v));  // get the lowest item
+                    toActive = $("#toc-item-" + $(entry.target).attr("href").substr(1));
+                } else {
+                    let entry = entries.reduce((u, v) => (u.target.toc_id < v.target.toc_id ? u : v));  // get the highest item
+                    let idx = Math.max(entry.target.toc_id - 1, 0);
+                    toActive = $("#toc-item-" + $(headerElems[idx]).attr("href").substr(1));
+                }
+                if (activeTocItem) activeTocItem.removeClass("is-current");
+                activeTocItem = toActive
+                activeTocItem.addClass("is-current");
+            }
+        
+            initIntersectionObserver($(document).height() * 2);
+            headerElems.each(function (index, obj) {
+                obj.toc_id = index;
+                scrollObserver.observe(obj);
+            })
+        });</script></div><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.png" alt="竹影の叶"></figure><p class="title is-size-4 is-block line-height-inherit">竹影の叶</p><p class="is-size-6 is-block">尚未佩妥剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://gitee.com/zhuyingcoder" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/p/1005056398954554?"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Email" href="https://mail.qq.com/cgi-bin/frame_html"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="集合框架 JCF"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架 JCF</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/docker/Docker/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/PoLxRshODiJmCFW.jpg" alt="docker入门"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/docker/Docker/">docker入门</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/docker/">docker</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="注解解析程序"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/">注解解析程序</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="继承和多态"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/">继承和多态</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="抽象类和接口的总结"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/">抽象类和接口的总结</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">17</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/java%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">java基础</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/java/"><span class="tag">java</span><span class="tag is-grey-lightest">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/javaSE/"><span class="tag">javaSE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%BC%95%E6%93%8E/"><span class="tag">应用容器引擎</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=removeifFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="removeifFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div><p class="help">输入邮箱开始订阅，更博后邮件通知！</p></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a><p class="size-small"><span>&copy; 2020 叶建雄</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">removeif</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请联系zhuyingcoder@qq.com，立即处理<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2020/2/11 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><!--!--><!--!--><!--!--><script src="/js/toc.js" defer></script><script src="/js/main.js" defer></script><script src="/js/banner.js"></script><link rel="stylesheet" href="/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
+            var INSIGHT_CONFIG = {
+                TRANSLATION: {
+                    POSTS: '文章',
+                    PAGES: '页面',
+                    CATEGORIES: '分类',
+                    TAGS: '标签',
+                    UNTITLED: '(无标题)',
+                },
+                CONTENT_URL: '/content.json',
+            };
+            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+        })(window);</script><script src="/js/insight.js" defer></script></body></html>

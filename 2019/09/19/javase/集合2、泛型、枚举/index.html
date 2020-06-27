@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><meta name="keywords" content="categories-github"><meta name="description" content="java,技术分享,后端开发,支付框架,数据接口"><meta name="author" content="removeif"><title>集合-Map - 叶大帅的博客</title><meta description="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:type" content="article"><meta property="og:title" content="集合-Map"><meta property="og:url" content="http://yoursite.com/2019/09/19/javase/%E9%9B%86%E5%90%882%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE/"><meta property="og:site_name" content="竹影の叶"><meta property="og:description" content="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2019-09-19T14:10:43.000Z"><meta property="article:modified_time" content="2020-06-27T13:58:10.728Z"><meta property="article:author" content="removeif"><meta property="article:tag" content="categories-github"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://yoursite.com/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/09/19/javase/%E9%9B%86%E5%90%882%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE/"},"headline":"集合-Map","image":["http://yoursite.com/img/avatar.png"],"datePublished":"2019-09-19T14:10:43.000Z","dateModified":"2020-06-27T13:58:10.728Z","author":{"@type":"Person","name":"removeif"},"description":"java,技术分享,后端开发,支付框架,数据接口"}</script><link rel="alternative" href="/atom.xml" title="叶大帅的博客" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-dark.min.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/style.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="集合-Map"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><div style="color: #3273dc;font-size: 1.8rem;"><i class="fas fa-arrow-alt-circle-up"></i> </div><i class="far fa-calendar-plus"> </i>2019-09-19  <span class="level-item"><i class="far fa-clock"> </i>20 分钟  <i class="fas fa-pencil-alt"> </i>2.9 k</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">集合-Map</h1><div class="content"><p>回顾一下Collection分支</p>
+<blockquote>
+<ul>
+<li>List,  有序、可重复<ul>
+<li>ArrayList</li>
+<li>LinkedList</li>
+<li>Vector<ul>
+<li>Stack  – 设计有缺陷，不建议使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Set， 无序、不可重复的<ul>
+<li>HashSet   – <strong>组合了一个HashMap来实现的</strong></li>
+<li>SortedSet<ul>
+<li>TreeSet   – <strong>组合了一个 TreeMap 来实现的</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Queue，FIFO（先进先出）<ul>
+<li>PriorityQueue</li>
+<li>Deque  – Double End Queue</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>与Collection不同，Map存储的是键-&gt;值  对，也就是 Key -&gt; Value, 本质上在Map内部，这个key和value会被封装成 Map.Entry 对象， 这个对象中拥有key和value  两个属性。</p>
+<p>Map的特点：</p>
+<blockquote>
+<ul>
+<li>key是无序的、不可重复的</li>
+<li>key可以为null, 注：对value没有任何要求。</li>
+</ul>
+</blockquote>
+<h3 id="Map的常用操作"><a href="#Map的常用操作" class="headerlink" title="Map的常用操作"></a>Map的常用操作</h3><ul>
+<li>put(K key, Value v)   把一对键值对存放当前的Map中</li>
+<li>get(K key)   -&gt;   Value  通过key来获取Value</li>
+<li>containsKey(K key)  判断当前的MAP中是否包含指定的key</li>
+<li>containsValue(V value)   判断当前的MAP中是否包含指定的Value</li>
+<li>三个方法可以把MAP转换成Set或Collection<ul>
+<li>values()  -&gt;  Collection     把Map的所有值取出来，形成一个Collection并返回</li>
+<li>keySet()   -&gt;  Set<K>   把MAP的所有KEY取出来，形成一个SET并返回，不含VALUE</li>
+<li>entrySet()   -&gt; Set&lt;Entry&lt;K, V&gt;&gt;   把MAP的所有KEY和VALUE都取来，并封装成Entry对象，把Entry对象存放到Set中，并返回</li>
+</ul>
+</li>
+</ul>
+<h3 id="Map的实现类-HashMap"><a href="#Map的实现类-HashMap" class="headerlink" title="Map的实现类 - HashMap"></a>Map的实现类 - HashMap</h3><blockquote>
+<p>此类采用哈希算法来实现Map， 它的原理如下：</p>
+<p>首先，当把一个对象put到HashMap中时，容器会调用此对象的hashcode方法获取对象的哈希码值，根据此哈希码值来计算出此对象应该存放的位置“桶”。</p>
+<p>其次，当再把一个对象put到此HashMap中时，容器同样会调用此对象的hashcode方法获取对象的哈希码值，再根据此哈希码值来计算出此对象应该存放的位置“桶”。如果此时，这个位置”桶”被前面的对象给占用了，那么容器会调用此对象的equals()方法来判断此对象与<strong>占桶</strong>对象是否是<strong>“相等”</strong>，如果equals方法返回true，则相等，那么后面会覆盖前面。如果equals方法返回false,  则容器会把撞桶的对象采用平衡二叉树来存储，并且是用红黑树算法来决定它的位置。</p>
+<p>最后，每个对象 的加入都重复上面的第2步。</p>
+</blockquote>
+<h4 id="有关二叉树的知识"><a href="#有关二叉树的知识" class="headerlink" title="有关二叉树的知识"></a>有关二叉树的知识</h4><ul>
+<li><p>普通二叉树，就是把数据以左孩子和右孩子 的方式进行存储，不是采用线性结构，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二叉树的数据节点封装结构</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    Node left;   <span class="comment">// 指向左孩子的指针</span></span><br><span class="line">    Node right;  <span class="comment">//指向右孩子的指针</span></span><br><span class="line">    Object data;  <span class="comment">//数据</span></span><br><span class="line">    <span class="comment">//....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：普通二叉树使用价值不高</p>
+</li>
+<li><p>排序二叉树【Search Binary Tree】，是指左孩子节点值比它的根节点值要小，右孩子节点值比它的根节点值要大。每一个子树也是同样的规则</p>
+<p>注：排序二叉有 前序、中序、后序三种遍历方式。</p>
+</li>
+<li><p>平衡二叉树【Balanced Binary Tree】，首先它是排序二叉树，再满足如下要求</p>
+<ul>
+<li>左子树的高度与右子树的高度差，其绝对值小于或等于1</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="SortedMap-接口"><a href="#SortedMap-接口" class="headerlink" title="SortedMap [接口]"></a>SortedMap [接口]</h3><blockquote>
+<p>可排序的Map, 它是Map的子接口，提供了自动排序的功能。</p>
+<p>它要求存放在此容器中的key是能够比较的。API 中提供了两种比较的接口</p>
+<ul>
+<li><p>java.lang.Comparable 接口 【可比较器的】</p>
+<p>它里面有一个 <code>compareTo方法</code>。</p>
+</li>
+<li><p>java.util.Comparator 接口 【比较器】</p>
+<p>它里面有一个 <code>compare</code> 方法</p>
+</li>
+</ul>
+<p>第一： 如果我们不传递比较器到SortedMap中，则要求你加入到此容器的中对象必需要实现 <code>Comparable</code> 接口，这样一来，当你开始添加第2个对象时，容器会把你传入的对象强制类型转换成 <code>Comparable</code> 接口，并且调用对象的<code>compareTo</code>方法，从而决定他们之间的大小，也就决定了存放的位置。</p>
+<p>第二：如果我们传递了一个比较器对象到此容器中，此种情况下，就不要求被添加的对象去实现<code>Comparable</code> 接口，而是通过这个比较器去比较。它的原理如下：</p>
+<p>​    - 从添加第2个对象开始，调用比较器的<code>compare</code> 方法，并把前面已经存在的1个对象和刚加入的对象做参数传递给这个<code>compare</code> 方法，由这个方法决定两个对象的大小，如果返回0，表示相同，后面的会把前面的覆盖掉，如果返回-1,表示后加入的比前面的小。如果返回1，表示后加入的比前面的大。</p>
+</blockquote>
+<h4 id="实现类：TreeMap"><a href="#实现类：TreeMap" class="headerlink" title="实现类：TreeMap"></a>实现类：TreeMap</h4><blockquote>
+<p>底层采用<strong>平衡二叉树</strong>来实现。</p>
+</blockquote>
+<p>常用方法：</p>
+<ul>
+<li><p>public TreeMap()    要求被添加对象要实现 <code>Comparable</code> 接口</p>
+<p>注：在JDK, 以下几种常用类型都是实现了 <code>Comparable</code> 接口的，</p>
+<ul>
+<li>Integer, Long</li>
+<li>String</li>
+<li>Date</li>
+<li>..</li>
+</ul>
+<p>所以，我们使用Map时，Key的类型尽量使用 Integer, Long, String, 如果你的Key是一个自定义类型，那最好实现 <code>Comparable</code> 接口。</p>
+</li>
+<li><p>public TreeMap(Comparator c)   传入比较器， 这种方式更加灵活，对Key没有实现 <code>Comparable</code> 接口的要求。</p>
+</li>
+<li><p>public TreeMap(Map m);</p>
+</li>
+</ul>
+<p>…</p>
+<h4 id="再来看看-TreeSet"><a href="#再来看看-TreeSet" class="headerlink" title="再来看看 TreeSet"></a>再来看看 TreeSet</h4><blockquote>
+<p>此实现类实现了 <code>SortedSet</code> 接口，此类本质上是组合了 <code>TreeMap</code>对象。利用了 TreeMap的Key的位置来存储元素。所以，对于TreeSet而言，它同样有如下构造</p>
+<ul>
+<li>public TreeSet()     要求被添加了对象实现 <code>Comparable</code> 接口</li>
+<li>public TreeSet(Comparator c)  由于传入了比较器，所以，不要求 元素实现 Comparable 接口。</li>
+</ul>
+</blockquote>
+<h2 id="JCF小结"><a href="#JCF小结" class="headerlink" title="JCF小结"></a>JCF小结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Iterable</span><br><span class="line">	\- java.util.Collection</span><br><span class="line">			\- java.util.List</span><br><span class="line">					\- ArrayList    数组实现的</span><br><span class="line">					\- LinkedList	双向链表实现的</span><br><span class="line">					\- Vector</span><br><span class="line">			\- java.util.Set</span><br><span class="line">					\- HashSet   哈希算法+红黑树， 组合了 HashMap</span><br><span class="line">					\- java.util.SortedSet</span><br><span class="line">							\- TreeSet   平衡二叉树，组合了 TreeMap</span><br><span class="line">			\- java.util.Queue</span><br><span class="line">					\- PriorityQueue      优先队列</span><br><span class="line">					\- java.util.Deque    双端队列</span><br><span class="line">							\- ArrayDeque   数组</span><br><span class="line">			</span><br><span class="line">java.util.Map</span><br><span class="line">	\- HashMap		哈希算法</span><br><span class="line">	\- java.util.SortedMap</span><br><span class="line">				\- TreeMap	平衡二叉树实现</span><br><span class="line">				</span><br><span class="line"><span class="comment">//两个做比较的接口</span></span><br><span class="line">java.lang.Comparable&lt;T&gt;</span><br><span class="line">java.util.Comparator&lt;T&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型-Generic"><a href="#泛型-Generic" class="headerlink" title="泛型 Generic"></a>泛型 Generic</h2><blockquote>
+<p>泛型就是<strong>类型参数化</strong></p>
+<p>泛型有如下特点：</p>
+<ol>
+<li>泛型是编译时的概念，在运行时并不存在泛型。</li>
+<li>泛型不存在多态【因为它只是编译期的概念】</li>
+</ol>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List a = <span class="keyword">new</span> ArrayList(); <span class="comment">//ok</span></span><br><span class="line">Object b = <span class="keyword">new</span> Student(); <span class="comment">//ok</span></span><br><span class="line">List&lt;Object&gt; ab = <span class="keyword">new</span> ArrayList&lt;Student&gt;(); <span class="comment">//compile error</span></span><br><span class="line"></span><br><span class="line">List&lt;Student&gt; ab = <span class="keyword">new</span> ArrayList&lt;Student&gt;(); <span class="comment">//ok</span></span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">List&lt;Student&gt; ab = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="泛型字母"><a href="#泛型字母" class="headerlink" title="泛型字母"></a>泛型字母</h3><blockquote>
+<p>就是一个泛型的符号代替，一般使用单个字母，如：T, K, V, E, S, …</p>
+</blockquote>
+<h3 id="泛型类的定义"><a href="#泛型类的定义" class="headerlink" title="泛型类的定义"></a>泛型类的定义</h3><p>语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类型&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    	</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    </span><br><span class="line">    在类型中定义了泛型字母，在属性和方法中就可以使用这个泛型字母 T</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleStack</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//采用组合模式</span></span><br><span class="line">	<span class="keyword">private</span> LinkedList&lt;T&gt; container;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SimpleStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//初始化这个容器</span></span><br><span class="line">		<span class="keyword">this</span>.container = <span class="keyword">new</span> LinkedList&lt;T&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(T element)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//把元素放在第一个位置</span></span><br><span class="line">		<span class="keyword">this</span>.container.push(element); <span class="comment">//等价于调用 addFirst()</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//永远取出列表中的第1个元素</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.container.pop(); <span class="comment">//等 价于调用 removeFirst()</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.container.isEmpty();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.container.size();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//只返回本栈的栈顶元素，但是此元素并不从栈中移除</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.container.peek();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    SimpleStack&lt;Integer&gt; ss1 = <span class="keyword">new</span> SimpleStack&lt;&gt;();</span><br><span class="line">    ss1.push(<span class="number">12</span>); <span class="comment">//ok</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    SimpleStack&lt;String&gt; ss2 = <span class="keyword">new</span> SimpleStack&lt;&gt;();</span><br><span class="line">    ss2.push(<span class="string">"jack"</span>); <span class="comment">//ok</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="泛型方法的定义"><a href="#泛型方法的定义" class="headerlink" title="泛型方法的定义"></a>泛型方法的定义</h3><blockquote>
+<p>此处所指是指 在类的层面上，没有定义泛型字母，而在方法中需要使用泛型。</p>
+<p>泛型方法的定义一般都在 工具类，因为工具类的方法都是静态的。</p>
+<p>语法：</p>
+<p>修饰符 <T> 返回类型 方法名(T p, … )throws 异常列表 { … }</p>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">   	<span class="comment">//属性</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ma</span><span class="params">()</span> </span>&#123;  ....  &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//泛型方法: 在返回类型和修饰符之间，要单独定义泛型字母，这样一来，在方法体中，就可以使用这个泛型字母。</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">mb</span><span class="params">(T p)</span> </span>&#123;  ...   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="泛型通配符-wildcards"><a href="#泛型通配符-wildcards" class="headerlink" title="泛型通配符 wildcards"></a>泛型通配符 wildcards</h3><ul>
+<li>? 通配任意类型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//ok</span></span><br><span class="line">intList.add(<span class="number">100</span>); <span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line">List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//ok</span></span><br><span class="line">strList.add(<span class="string">"jack"</span>); <span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line">List&lt;?&gt; hehe = <span class="keyword">new</span> ArrayList&lt;String&gt;(); <span class="comment">//ok</span></span><br><span class="line">hehe.add(<span class="keyword">null</span>);  <span class="comment">//ok</span></span><br><span class="line">hehe.add(<span class="string">"jack"</span>); <span class="comment">//error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(List&lt;?&gt; container)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">for</span>(Object o  : container) &#123;</span><br><span class="line">        System.out.println(o);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>进一步对通配符进行限定，可以限定类型上限，也可以限定类型下限</p>
+<p>&lt;? extends  类型&gt;   指定上限</p>
+<p>&lt;? super 类型&gt;        指定下限</p>
+<h4 id="集合的工具类-Collections"><a href="#集合的工具类-Collections" class="headerlink" title="集合的工具类 Collections"></a>集合的工具类 Collections</h4><blockquote>
+<p>方法详见API文档</p>
+<p>addAll()</p>
+<p>sort()</p>
+<p>ncopies()</p>
+<p>shuffle()</p>
+<p>….</p>
+</blockquote>
+<h2 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 [enum]"></a>枚举 [enum]</h2><blockquote>
+<p>同样是一种类型，利用 <strong>enum</strong> 关键字来定义,  编译完成后，也是字节码文件。</p>
+<p><strong>枚举是一种类型安全的常量类</strong></p>
+<p>语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> 枚举名 &#123;</span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">   	<span class="comment">//1.普通属性，同 class 一样，使用不多</span></span><br><span class="line">    <span class="comment">//2.常量属性，也就是枚举本身的公开静态常量, 每一个枚举常量，都是枚举本身的一个实例。</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Season &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//普通属性</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">//常量属性</span></span><br><span class="line">    SPRING,</span><br><span class="line">    SUMMER,</span><br><span class="line">    AUTUMN,</span><br><span class="line">    WINTER;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：拥有固定值的信息适合定义成枚举，如：四季、星期、月份、交通信号灯、扑克牌花色、扑克牌点数、…</p>
+</blockquote>
+<h4 id="枚举的特点"><a href="#枚举的特点" class="headerlink" title="枚举的特点"></a>枚举的特点</h4><ol>
+<li>它的构造方法一定是私有的。</li>
+<li>枚举中也可以定义抽象方法，每一个枚举常量都必需要实现这个抽象方法。</li>
+<li>我们定义的枚举，都自动继承于 java.lang.Enum<T> </li>
+</ol>
+<h3 id="为什么-说枚举常量是类型安全的常量呢？"><a href="#为什么-说枚举常量是类型安全的常量呢？" class="headerlink" title="为什么 说枚举常量是类型安全的常量呢？"></a>为什么 说枚举常量是类型安全的常量呢？</h3><blockquote>
+<p>因为枚举的常量，都是指向本类的实例，不是其它的类型。</p>
+<p>因为枚举的构造方法默认就是私有的，而且只能是私有的。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constant</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Constant SPRING = <span class="keyword">new</span> Constant();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Constant SUMMER = <span class="keyword">new</span> Constant();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Constant AUTUMN = <span class="keyword">new</span> Constant();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Constant WINTER = <span class="keyword">new</span> Constant();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Constant</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以上的类就是枚举的本质，改成使用 enum 来定义如下：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Season &#123;</span><br><span class="line">    SPRING,</span><br><span class="line">    SUMMER,</span><br><span class="line">    AUTUMN,</span><br><span class="line">    WINTER;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UseXX</span> </span>&#123;</span><br><span class="line">    <span class="comment">//参数season取出常量类 Constant的四个常量之一</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convert</span><span class="params">(Constant season)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(season == Constant.SPRING) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"春天"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(season == Constant.SUMMER) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        String s = convert(Constant.SPRING);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><ol>
+<li><p>定义一个扑克牌花色 的枚举, 包含 黑、红、梅、方 四个枚举常量</p>
+</li>
+<li><p>定义一个扑克牌点数的枚举，包含 1，2，3，4，5，。。。，J,Q,K  13个枚举常量</p>
+</li>
+<li><p>定义一个卡片类[Card], 内置2个属性， 花色和点数， 提供构造方法、getter/setter、 toString, hashcode,equals方法</p>
+</li>
+<li><p>定义一个扑克牌类[Poker], 提供如下属性：</p>
+<ul>
+<li>private List<Card> cards;</li>
+<li>private boolean hasKing; //是否包含大小王，如果此属性为真 ，则cards中要含大小王。如果为假，则cards中不含大小王。</li>
+</ul>
+<p>再定义如下方法</p>
+<ul>
+<li>空参构造， 相当于hasKing属性为假，不含大小王来填充 cards</li>
+<li>带boolean 类型构造，由用户决定是否要含大小王，如果传入真，则要包含大小王来填充 cards</li>
+<li>public List<Card> newPoker() { }  //获取一封新的扑克牌</li>
+<li>public void shuffle(List<Card> cards) {}  //洗牌</li>
+<li>public void play(List<Card> cards, int player, int cardsForEach) {}  //发牌，其中，cards代表扑克牌，player代表玩家数量， cardsForEach 代表每个玩家发多少张牌。 此方法要求把每个玩家的牌打印出来。</li>
+</ul>
+</li>
+</ol>
+</div><ul class="post-copyright"><li><strong>本文标题：</strong><a href="http://yoursite.com/2019/09/19/javase/集合2、泛型、枚举/">集合-Map</a></li><li><strong>本文作者：</strong><a href="http://yoursite.com">叶建雄</a></li><li><strong>本文链接：</strong><a href="http://yoursite.com/2019/09/19/javase/集合2、泛型、枚举/">http://yoursite.com/2019/09/19/javase/集合2、泛型、枚举/</a></li><li><strong>版权声明：</strong><span>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</span></li></ul><div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 相关文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/" target="_blank">核心API</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/NIO%E3%80%81Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">NIO</a><br></span><span>  7.<a class="is-size-6" href="/2019/09/19/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">多线程</a><br></span><span>  8.<a class="is-size-6" href="/2019/09/19/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_blank">面向对象</a><br></span></div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/" target="_blank">注解解析程序</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/" target="_blank">核心API</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/09/19/javase/IO%E6%B5%81/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">io流</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/09/19/javase/%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81File/"><span class="level-item">内部类、File</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget toc-scroll" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-Map" href="#Map"><span>Map</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-Map的常用操作" href="#Map的常用操作"><span>Map的常用操作</span></a></li><li><a class="is-flex toc-item" id="toc-item-Map的实现类-HashMap" href="#Map的实现类-HashMap"><span>Map的实现类 - HashMap</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-有关二叉树的知识" href="#有关二叉树的知识"><span>有关二叉树的知识</span></a></li></ul></li><li><a class="is-flex toc-item" id="toc-item-SortedMap-接口" href="#SortedMap-接口"><span>SortedMap [接口]</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-实现类：TreeMap" href="#实现类：TreeMap"><span>实现类：TreeMap</span></a></li><li><a class="is-flex toc-item" id="toc-item-再来看看-TreeSet" href="#再来看看-TreeSet"><span>再来看看 TreeSet</span></a></li></ul></li></ul></li><li><a class="is-flex toc-item" id="toc-item-JCF小结" href="#JCF小结"><span>JCF小结</span></a></li><li><a class="is-flex toc-item" id="toc-item-泛型-Generic" href="#泛型-Generic"><span>泛型 Generic</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-泛型字母" href="#泛型字母"><span>泛型字母</span></a></li><li><a class="is-flex toc-item" id="toc-item-泛型类的定义" href="#泛型类的定义"><span>泛型类的定义</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-案例" href="#案例"><span>案例</span></a></li></ul></li><li><a class="is-flex toc-item" id="toc-item-泛型方法的定义" href="#泛型方法的定义"><span>泛型方法的定义</span></a></li><li><a class="is-flex toc-item" id="toc-item-泛型通配符-wildcards" href="#泛型通配符-wildcards"><span>泛型通配符 wildcards</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-集合的工具类-Collections" href="#集合的工具类-Collections"><span>集合的工具类 Collections</span></a></li></ul></li></ul></li><li><a class="is-flex toc-item" id="toc-item-枚举-enum" href="#枚举-enum"><span>枚举 [enum]</span></a><ul class="menu-list toc"><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-枚举的特点" href="#枚举的特点"><span>枚举的特点</span></a></li></ul><li><a class="is-flex toc-item" id="toc-item-为什么-说枚举常量是类型安全的常量呢？" href="#为什么-说枚举常量是类型安全的常量呢？"><span>为什么 说枚举常量是类型安全的常量呢？</span></a></li></ul></li><li><a class="is-flex toc-item" id="toc-item-作业" href="#作业"><span>作业</span></a></li></ul></div></div><script type="text/javascript" async>
+        $(document).ready(function () { //参考自 https://github.com/ppoffice/hexo-theme-icarus/pull/616/files
+            var observerTopMargin;
+            var scrollObserver;
+            var headerElems = $(".headerlink");
+            var activeTocItem;
+        
+            function initIntersectionObserver(docHeight) {
+                observerTopMargin = docHeight;
+                scrollObserver = new IntersectionObserver(scrollCallBack,
+                    {
+                        root: null,  // viewpoint
+                        rootMargin: docHeight + "px 0px -80% 0px"  // cover top 30% of viewport to the top of document
+                    })
+            }
+        
+            function scrollCallBack(entries, observer) {
+                if ($(window).scrollTop() > observerTopMargin * 0.7) { 
+                    // User somehow scroll to 70% of observerTopMargin (which is inited as 200% document height)
+                    // Observer top margin need to extend to cover all the space to the top of the document
+                    initIntersectionObserver(observerTopMargin * 2)
+                    observer.disconnect();
+                    return;
+                }
+                let toActive;
+                if (entries[0].intersectionRatio == 1) {  // enter viewed area
+                    let entry = entries.reduce((u, v) => (u.target.toc_id > v.target.toc_id ? u : v));  // get the lowest item
+                    toActive = $("#toc-item-" + $(entry.target).attr("href").substr(1));
+                } else {
+                    let entry = entries.reduce((u, v) => (u.target.toc_id < v.target.toc_id ? u : v));  // get the highest item
+                    let idx = Math.max(entry.target.toc_id - 1, 0);
+                    toActive = $("#toc-item-" + $(headerElems[idx]).attr("href").substr(1));
+                }
+                if (activeTocItem) activeTocItem.removeClass("is-current");
+                activeTocItem = toActive
+                activeTocItem.addClass("is-current");
+            }
+        
+            initIntersectionObserver($(document).height() * 2);
+            headerElems.each(function (index, obj) {
+                obj.toc_id = index;
+                scrollObserver.observe(obj);
+            })
+        });</script></div><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.png" alt="竹影の叶"></figure><p class="title is-size-4 is-block line-height-inherit">竹影の叶</p><p class="is-size-6 is-block">尚未佩妥剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://gitee.com/zhuyingcoder" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/p/1005056398954554?"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Email" href="https://mail.qq.com/cgi-bin/frame_html"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="集合框架 JCF"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架 JCF</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/docker/Docker/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/PoLxRshODiJmCFW.jpg" alt="docker入门"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/docker/Docker/">docker入门</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/docker/">docker</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="注解解析程序"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/">注解解析程序</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="继承和多态"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/">继承和多态</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="抽象类和接口的总结"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/">抽象类和接口的总结</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">17</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/java%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">java基础</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/java/"><span class="tag">java</span><span class="tag is-grey-lightest">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/javaSE/"><span class="tag">javaSE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%BC%95%E6%93%8E/"><span class="tag">应用容器引擎</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=removeifFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="removeifFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div><p class="help">输入邮箱开始订阅，更博后邮件通知！</p></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a><p class="size-small"><span>&copy; 2020 叶建雄</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">removeif</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请联系zhuyingcoder@qq.com，立即处理<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2020/2/11 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><!--!--><!--!--><!--!--><script src="/js/toc.js" defer></script><script src="/js/main.js" defer></script><script src="/js/banner.js"></script><link rel="stylesheet" href="/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
+            var INSIGHT_CONFIG = {
+                TRANSLATION: {
+                    POSTS: '文章',
+                    PAGES: '页面',
+                    CATEGORIES: '分类',
+                    TAGS: '标签',
+                    UNTITLED: '(无标题)',
+                },
+                CONTENT_URL: '/content.json',
+            };
+            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+        })(window);</script><script src="/js/insight.js" defer></script></body></html>

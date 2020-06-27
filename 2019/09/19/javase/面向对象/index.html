@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><meta name="keywords" content="categories-github"><meta name="description" content="java,技术分享,后端开发,支付框架,数据接口"><meta name="author" content="removeif"><title>面向对象 - 叶大帅的博客</title><meta description="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:type" content="article"><meta property="og:title" content="面向对象"><meta property="og:url" content="http://yoursite.com/2019/09/19/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><meta property="og:site_name" content="竹影の叶"><meta property="og:description" content="java,技术分享,后端开发,支付框架,数据接口"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2019-09-19T14:10:43.000Z"><meta property="article:modified_time" content="2020-06-27T14:00:44.663Z"><meta property="article:author" content="removeif"><meta property="article:tag" content="categories-github"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://yoursite.com/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/09/19/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"},"headline":"面向对象","image":["http://yoursite.com/img/avatar.png"],"datePublished":"2019-09-19T14:10:43.000Z","dateModified":"2020-06-27T14:00:44.663Z","author":{"@type":"Person","name":"removeif"},"description":"java,技术分享,后端开发,支付框架,数据接口"}</script><link rel="alternative" href="/atom.xml" title="叶大帅的博客" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-dark.min.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/style.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="面向对象"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><div style="color: #3273dc;font-size: 1.8rem;"><i class="fas fa-arrow-alt-circle-up"></i> </div><i class="far fa-calendar-plus"> </i>2019-09-19  <span class="level-item"><i class="far fa-clock"> </i>15 分钟  <i class="fas fa-pencil-alt"> </i>2.3 k</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">面向对象</h1><div class="content"><blockquote>
+<p>是一种编程的方法论，也是一种软件构建的指导思想。</p>
+<p>先整体后局部，也就是 <code>TOP - DOWN</code> 的思维，与之对应的是”面向过程”编程思想。</p>
+<p>面向过程比较注重的是 方法的构建，侧重点就是 数据结构+算法。</p>
+<p>而面向对象是不以方法做为构建的基本单位，在方法之上，创造了””新的一层”,这一层可以理解为 “抽象类”,在这个类中，封装了方法，在方法中，同样需要 数据结构 + 算法。这样一来，做为的软件的构建者，我们不是直接与“方法”来打交道，而是基于中间层的“类/对象” 来构建软件</p>
+</blockquote>
+<p>所以，面向对象的首要任务就是如何去“找到”符合我们业务需求的这些“类/对象“，而不是直接去想方法和实现。基于这点，面向对象思想有了三大基本特征：</p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+<p>注：面向对象编程思想不是java语言特有的，它是超脱于编程语言之外的，任何的编程只要满足以上三个基本特征，它就可以是面向对象的编程语言。</p>
+<p>当我们接到一个软件业务需求的时候，以面向对象的思想我们该如何去分析？</p>
+<ol>
+<li>从宏观上找到这个需求当中需要参与的“对象”【不是找具体的数据结构和算法】</li>
+<li>我们需要进一步分析这些“对象”，对它们进行“归类” 【抽象的过程】</li>
+<li>对这些对象进行“业务功能”的赋予</li>
+<li>对这些”业务功能“进行细节上的实现，此时，就需要考虑数据结构 + 算法。</li>
+</ol>
+<p>以上的分析就是<code>TOP - DOWN</code> 的思维，也就是面向对象的方法论。</p>
+<p>–</p>
+<p>我们在开发代码时，第一步实际上是大脑的思维活动，而真正写出代码已经到了第2步。</p>
+<p>在客观世界中，我们先有“对象”，然后再“归类”</p>
+<p>在代码世界中，我们要先开发出类型，然后才能实例化出对象。</p>
+<p>这与我们大脑的思维活动是一致的，所以，面向对象编程是很符合大脑的思维习惯的。</p>
+<p>–</p>
+<p>在JAVA中如何定义一个类型？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类型 </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 我们要如何去给这个类型添加“业务功能”呢？</p>
+<p>从2个维度去描述它，</p>
+<ul>
+<li>这个类型拥有什么？  就叫 属性[field], 一般数据结构由属性来封装</li>
+<li>这个类型能干什么？ 就叫 方法【method】， 一般算法由方法封装。</li>
+</ul>
+<p>下面再来看看 属性 的定义语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 数据类型 属性名 [= 初始值];</span><br></pre></td></tr></table></figure>
+
+<p>这个语法与变量几乎一致，所以，<strong>属性也是一种变量，叫 实例变量</strong></p>
+<p>方法的定义语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回类型 方法名(参数列表) [申明所抛出的异常类型列表] &#123;</span><br><span class="line">    <span class="comment">//方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>把属性和方法装入到“类型”中后， 再来看看类的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类型 </span>&#123;</span><br><span class="line">    <span class="comment">//属性的定义</span></span><br><span class="line">    修饰符 数据类型 属性名 [= 初始值];</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法的定义</span></span><br><span class="line">    修饰符 返回类型 方法名(参数列表) [申明所抛出的异常类型列表] &#123;</span><br><span class="line">    	<span class="comment">//方法体</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：类型中，可以定义0至多个属性和0至多个方法.</p>
+<h2 id="开发类的难点"><a href="#开发类的难点" class="headerlink" title="开发类的难点"></a>开发类的难点</h2><ol>
+<li>不知道该给这个类赋予什么样的属性</li>
+<li>不知道该给这个类赋予什么样的方法</li>
+</ol>
+<h2 id="开发类的过程中的易点"><a href="#开发类的过程中的易点" class="headerlink" title="开发类的过程中的易点"></a>开发类的过程中的易点</h2><ol>
+<li>方法的实现。</li>
+<li>数据结构的选择</li>
+</ol>
+<h2 id="属性的默认值"><a href="#属性的默认值" class="headerlink" title="属性的默认值"></a>属性的默认值</h2><blockquote>
+<p>当我们创建对象时，属性会有默认值 ，其中</p>
+<ul>
+<li>对象类型 的属性默认值是 null</li>
+<li>byte,short,int的默认值是 0</li>
+<li>long 的默认值是 0L</li>
+<li>char 的默认值是 <code>\u0000</code></li>
+<li>double,float的默认值是 0.0[保留1位小数时]</li>
+<li>boolean 的默认值是 false</li>
+</ul>
+</blockquote>
+<h2 id="对象创建的过程"><a href="#对象创建的过程" class="headerlink" title="对象创建的过程"></a>对象创建的过程</h2><blockquote>
+<p>new 关键字：它是一个运算符，它的作用就是用来申请堆空间[heap area]【堆空间是JVM的一块内存空间】</p>
+<ol>
+<li>申请堆空间 【是根据属性的大小来定的，基本类型的大小是固定的，对象类型存放的总是地址，地址总是占 4个字节】</li>
+<li>给属性赋默认值</li>
+<li>调用构造方法，给属性赋值。</li>
+</ol>
+</blockquote>
+<p>所以，普通属性是每个对象独享的，也就是说，同一个类的不同实例/对象拥有此类的所有属性的一个副本，每个对象的属性值可以是不一样的。你修改某个对象的普通属性值，并不会影响其它对象的属性值。</p>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><blockquote>
+<p>是一种特殊的方法，它的作用是用来给属性赋值的。当我们创建对象时，JVM会调用构造方法。</p>
+<p>构造方法的特点：</p>
+<ul>
+<li>方法名与类名 一样</li>
+<li>构造方法没有返回值。</li>
+<li>如果你在代码中，没有显示地定义类的构造方法，则JVM会自动为此类生成一个空参构造方法。如果你有定义构造方法，则JVM 不提供空参构造</li>
+<li>构造方法也可以重载。</li>
+</ul>
+</blockquote>
+<p>我们通过<code>new</code> 运算符来调用构造方法，根据调用者的参数个数和类型去与目标构造方法匹配，如果匹配成功，则调用目标构造方法，如果没有对应的方法，则报编译错误。</p>
+<h2 id="对象和类的关系"><a href="#对象和类的关系" class="headerlink" title="对象和类的关系"></a>对象和类的关系</h2><blockquote>
+<p>类是对象的抽象化概念，它是我们抽象出来的一个概念。</p>
+<p>对象是类的具体化/实例化</p>
+</blockquote>
+<h2 id="对象和引用的关系"><a href="#对象和引用的关系" class="headerlink" title="对象和引用的关系"></a>对象和引用的关系</h2><blockquote>
+<p>对象是存放在堆空间中数据的载体</p>
+<p>引用是存放在栈空间中指向堆空间对象的地址，也叫引用。</p>
+</blockquote>
+<p>我们要通过引用去操作对象。【引用也叫对象的句柄】</p>
+<p>如果一个对象没有了引用指向它，则JVM的GC线程就会回收这个对象，把堆空间给释放出来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一个引用在某一时刻只能指向一个对象。</span><br><span class="line">而一个对象可以被多个引用指向</span><br></pre></td></tr></table></figure>
+
+<h2 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h2><blockquote>
+<ul>
+<li>表示<code>当前对象</code>，它是指向当前对象的一个引用。当方法的形参名与属性名同名时，可以使用这个关键字来加以区分。</li>
+<li>用来调用其它的构造方法, 要求：必需要写在构造方法的第一行代码。</li>
+</ul>
+</blockquote>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><blockquote>
+<p>该隐藏的隐藏，该公开的公开！</p>
+<p>简单遵守以下原则：</p>
+<ul>
+<li>属性应该隐藏，因为属性一般是封装了数据的，而数据往往是敏感的，所以，应该隐藏。</li>
+<li>业务方法应该公开，因为业务方法是对外的。</li>
+</ul>
+<p>属性私有化后，外界如何去读取以及修改属性的值？</p>
+<p>我们要提供属性的读、写的公开方法，并在这些方法有选择地进行判断。</p>
+</blockquote>
+<p>针对业务方法的封装也有两种策略</p>
+<ol>
+<li>把类的属性、构造、getter/setter 方法和业务方法一起封装在同一个类中。</li>
+<li>把类的属性、构造、getter/setter 方法单独封装起来，然后，把业务方法另外封装成一个类。</li>
+</ol>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>设计一个类，封装银行帐户类，可以提供存钱、取钱、转帐等业务。</p>
+<p>分析：</p>
+<ol>
+<li><p>这个类拥有什么？</p>
+<p>余额，帐号，拥有者</p>
+</li>
+<li><p>这个类能干什么？</p>
+<p>存钱、取钱、转帐、…</p>
+</li>
+</ol>
+<p><strong>策略一</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">private</span> String accountNo;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">    <span class="keyword">private</span> String owner;</span><br><span class="line">    <span class="comment">//构造方法</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// getter/setter 方法</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 业务功能方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">       	<span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">transfer</span><span class="params">(Account target, <span class="keyword">double</span> money)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>策略二</strong> [使用更多]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">private</span> String accountNo;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">    <span class="keyword">private</span> String owner;</span><br><span class="line">    <span class="comment">//构造方法</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// getter/setter 方法</span></span><br><span class="line">    ...</span><br><span class="line">   <span class="comment">//不写业务方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//把业务方法单独封装</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 业务功能方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deposit</span><span class="params">(Account a, <span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">       	<span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">withdraw</span><span class="params">(Account a, <span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">transfer</span><span class="params">(Account from, Account target, <span class="keyword">double</span> money)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此策略的扩展性较好，它采用各司其职的思念，其中，封装了属性和get/set方法的类，叫实体类，它的对象就是数据的载体，封装了业务功能方法的类，叫业务类，它的对象是方法的载体。</p>
+</div><ul class="post-copyright"><li><strong>本文标题：</strong><a href="http://yoursite.com/2019/09/19/javase/面向对象/">面向对象</a></li><li><strong>本文作者：</strong><a href="http://yoursite.com">叶建雄</a></li><li><strong>本文链接：</strong><a href="http://yoursite.com/2019/09/19/javase/面向对象/">http://yoursite.com/2019/09/19/javase/面向对象/</a></li><li><strong>版权声明：</strong><span>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</span></li></ul><div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 相关文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%882%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE/" target="_blank">集合-Map</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/" target="_blank">核心API</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/NIO%E3%80%81Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">NIO</a><br></span><span>  7.<a class="is-size-6" href="/2019/09/19/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">多线程</a><br></span><span>  8.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span></div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/2019/09/19/javase/IO%E6%B5%81/" target="_blank">io流</a><br></span><span>  2.<a class="is-size-6" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" target="_blank">集合框架 JCF</a><br></span><span>  3.<a class="is-size-6" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/" target="_blank">注解解析程序</a><br></span><span>  4.<a class="is-size-6" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/" target="_blank">继承和多态</a><br></span><span>  5.<a class="is-size-6" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/" target="_blank">抽象类和接口的总结</a><br></span><span>  6.<a class="is-size-6" href="/2019/09/19/javase/%E6%A0%B8%E5%BF%83API/" target="_blank">核心API</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/09/19/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">多线程</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/09/19/javase/IO%E6%B5%81/"><span class="level-item">io流</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget toc-scroll" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-开发类的难点" href="#开发类的难点"><span>开发类的难点</span></a></li><li><a class="is-flex toc-item" id="toc-item-开发类的过程中的易点" href="#开发类的过程中的易点"><span>开发类的过程中的易点</span></a></li><li><a class="is-flex toc-item" id="toc-item-属性的默认值" href="#属性的默认值"><span>属性的默认值</span></a></li><li><a class="is-flex toc-item" id="toc-item-对象创建的过程" href="#对象创建的过程"><span>对象创建的过程</span></a></li><li><a class="is-flex toc-item" id="toc-item-构造方法" href="#构造方法"><span>构造方法</span></a></li><li><a class="is-flex toc-item" id="toc-item-对象和类的关系" href="#对象和类的关系"><span>对象和类的关系</span></a></li><li><a class="is-flex toc-item" id="toc-item-对象和引用的关系" href="#对象和引用的关系"><span>对象和引用的关系</span></a></li><li><a class="is-flex toc-item" id="toc-item-this-关键字" href="#this-关键字"><span>this 关键字</span></a></li><li><a class="is-flex toc-item" id="toc-item-封装" href="#封装"><span>封装</span></a><ul class="menu-list toc"><li><a class="is-flex toc-item" id="toc-item-案例" href="#案例"><span>案例</span></a></li></ul></li></ul></div></div><script type="text/javascript" async>
+        $(document).ready(function () { //参考自 https://github.com/ppoffice/hexo-theme-icarus/pull/616/files
+            var observerTopMargin;
+            var scrollObserver;
+            var headerElems = $(".headerlink");
+            var activeTocItem;
+        
+            function initIntersectionObserver(docHeight) {
+                observerTopMargin = docHeight;
+                scrollObserver = new IntersectionObserver(scrollCallBack,
+                    {
+                        root: null,  // viewpoint
+                        rootMargin: docHeight + "px 0px -80% 0px"  // cover top 30% of viewport to the top of document
+                    })
+            }
+        
+            function scrollCallBack(entries, observer) {
+                if ($(window).scrollTop() > observerTopMargin * 0.7) { 
+                    // User somehow scroll to 70% of observerTopMargin (which is inited as 200% document height)
+                    // Observer top margin need to extend to cover all the space to the top of the document
+                    initIntersectionObserver(observerTopMargin * 2)
+                    observer.disconnect();
+                    return;
+                }
+                let toActive;
+                if (entries[0].intersectionRatio == 1) {  // enter viewed area
+                    let entry = entries.reduce((u, v) => (u.target.toc_id > v.target.toc_id ? u : v));  // get the lowest item
+                    toActive = $("#toc-item-" + $(entry.target).attr("href").substr(1));
+                } else {
+                    let entry = entries.reduce((u, v) => (u.target.toc_id < v.target.toc_id ? u : v));  // get the highest item
+                    let idx = Math.max(entry.target.toc_id - 1, 0);
+                    toActive = $("#toc-item-" + $(headerElems[idx]).attr("href").substr(1));
+                }
+                if (activeTocItem) activeTocItem.removeClass("is-current");
+                activeTocItem = toActive
+                activeTocItem.addClass("is-current");
+            }
+        
+            initIntersectionObserver($(document).height() * 2);
+            headerElems.each(function (index, obj) {
+                obj.toc_id = index;
+                scrollObserver.observe(obj);
+            })
+        });</script></div><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.png" alt="竹影の叶"></figure><p class="title is-size-4 is-block line-height-inherit">竹影の叶</p><p class="is-size-6 is-block">尚未佩妥剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://gitee.com/zhuyingcoder" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/p/1005056398954554?"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Email" href="https://mail.qq.com/cgi-bin/frame_html"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="集合框架 JCF"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架 JCF</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/docker/Docker/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/PoLxRshODiJmCFW.jpg" alt="docker入门"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/docker/Docker/">docker入门</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/docker/">docker</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="注解解析程序"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E3%80%81%E4%BB%A3%E7%90%86/">注解解析程序</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="继承和多态"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E7%BB%A7%E6%89%BF%20%E5%92%8C%20%E5%A4%9A%E6%80%81/">继承和多态</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/"><p class="image is-64x64"><img class="thumbnail" src="https://i.loli.net/2020/06/27/ls234PxomXvG6Oa.jpg" alt="抽象类和接口的总结"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-19T14:10:43.000Z">2019-09-19</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/19/javase/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%80%BB%E7%BB%93%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E3%80%81Object%E7%B1%BB/">抽象类和接口的总结</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/Java/">Java</a> / <a class="link-muted" href="/categories/Java/java%E5%9F%BA%E7%A1%80/">java基础</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">17</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Java/java%E5%9F%BA%E7%A1%80/"><span class="level-start"><span class="level-item">java基础</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/docker/"><span class="level-start"><span class="level-item">docker</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/java/"><span class="tag">java</span><span class="tag is-grey-lightest">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/javaSE/"><span class="tag">javaSE</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%BC%95%E6%93%8E/"><span class="tag">应用容器引擎</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=removeifFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="removeifFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div><p class="help">输入邮箱开始订阅，更博后邮件通知！</p></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="叶大帅的博客" height="28"></a><p class="size-small"><span>&copy; 2020 叶建雄</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">removeif</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请联系zhuyingcoder@qq.com，立即处理<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2020/2/11 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/zhuyingcoder"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><!--!--><!--!--><!--!--><script src="/js/toc.js" defer></script><script src="/js/main.js" defer></script><script src="/js/banner.js"></script><link rel="stylesheet" href="/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
+            var INSIGHT_CONFIG = {
+                TRANSLATION: {
+                    POSTS: '文章',
+                    PAGES: '页面',
+                    CATEGORIES: '分类',
+                    TAGS: '标签',
+                    UNTITLED: '(无标题)',
+                },
+                CONTENT_URL: '/content.json',
+            };
+            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+        })(window);</script><script src="/js/insight.js" defer></script></body></html>
